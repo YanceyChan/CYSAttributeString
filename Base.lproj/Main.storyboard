@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,15 +18,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="String" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ok-Cx-gQM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ok-Cx-gQM">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="RGP-pX-m71">
                                         <variation key="heightClass=regular-widthClass=compact" constant="304"/>
                                     </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Stri">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="ng">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -38,36 +53,83 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reT-wL-6uU">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="OpT-xH-zPS"/>
+                                    <constraint firstAttribute="width" constant="240" id="kAu-xs-BhC"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="OpT-xH-zPS"/>
+                                        <exclude reference="kAu-xs-BhC"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="OpT-xH-zPS"/>
+                                        <include reference="kAu-xs-BhC"/>
+                                    </mask>
+                                </variation>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="reT-wL-6uU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="64" id="3Fb-LD-O3o">
+                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="reT-wL-6uU" firstAttribute="leading" secondItem="4ok-Cx-gQM" secondAttribute="trailing" constant="-304" id="4Mn-De-Kwk">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-352"/>
+                            </constraint>
+                            <constraint firstItem="reT-wL-6uU" firstAttribute="leading" secondItem="4ok-Cx-gQM" secondAttribute="trailing" constant="-304" id="5Ce-IT-XE6">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-352"/>
+                            </constraint>
                             <constraint firstItem="4ok-Cx-gQM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="70Q-hR-pLF"/>
                             <constraint firstItem="4ok-Cx-gQM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="l8O-8Z-WUw"/>
                             <constraint firstItem="4ok-Cx-gQM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="66" id="wf8-RJ-e87"/>
+                            <constraint firstItem="reT-wL-6uU" firstAttribute="top" secondItem="4ok-Cx-gQM" secondAttribute="bottom" constant="2" id="wz9-eJ-94Z">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="4ok-Cx-gQM"/>
+                                <exclude reference="reT-wL-6uU"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="70Q-hR-pLF"/>
                                 <exclude reference="l8O-8Z-WUw"/>
                                 <exclude reference="wf8-RJ-e87"/>
+                                <exclude reference="3Fb-LD-O3o"/>
+                                <exclude reference="4Mn-De-Kwk"/>
+                                <exclude reference="5Ce-IT-XE6"/>
+                                <exclude reference="wz9-eJ-94Z"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="4ok-Cx-gQM"/>
+                                <include reference="reT-wL-6uU"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="70Q-hR-pLF"/>
                                 <include reference="l8O-8Z-WUw"/>
                                 <include reference="wf8-RJ-e87"/>
+                                <include reference="3Fb-LD-O3o"/>
+                                <include reference="4Mn-De-Kwk"/>
+                                <include reference="5Ce-IT-XE6"/>
+                                <include reference="wz9-eJ-94Z"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="attributeStringLabel" destination="4ok-Cx-gQM" id="tUX-iC-dWA"/>
+                        <outlet property="textview" destination="reT-wL-6uU" id="UQX-my-aif"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
